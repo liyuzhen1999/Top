@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.ruoyitopcrm.mapper.customerMapper">
+    <resultMap id="CustomerResultMap" type="com.ruoyi.ruoyitopcrm.domain.customer">
+        <id column="id" property="id"/>
+        <result column="customer_name" property="customer_name"/>
+        <result column="customer_phone" property="customer_phone"/>
+        <result column="customer_email" property="customer_address"/>
+        <result column="customer_fax" property="customer_fax"/>
+        <result column="customer_representor" property="customer_representor"/>
+        <result column="customer_post" property="customer_post"/>
+        <result column="contact_id" property="contact_id"/>
+        <result column="contact_name" property="contact_name"/>
+    </resultMap>
+    <select id="getAllCustomer" resultMap="CustomerResultMap" >
+        select * from customer
+    </select>
+</mapper>
