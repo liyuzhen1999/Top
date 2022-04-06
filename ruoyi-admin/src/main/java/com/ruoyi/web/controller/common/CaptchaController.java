@@ -55,6 +55,7 @@ public class CaptchaController
         // 保存验证码信息
         String uuid = IdUtils.simpleUUID();
         String verifyKey = Constants.CAPTCHA_CODE_KEY + uuid;
+        System.out.println(verifyKey);
 
         String capStr = null, code = null;
         BufferedImage image = null;

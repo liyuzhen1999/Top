@@ -52,6 +52,11 @@ export const constantRoutes = [
     hidden: true
   },
   {
+    path: '/topcrm/contact',
+    component: ()=>('@/views/topcrm/contact/contact'),
+    hidden: true
+  },
+  {
     path: '/register',
     component: () => import('@/views/register'),
     hidden: true

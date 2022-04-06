@@ -9,4 +9,9 @@ import java.util.List;
 public interface customerMapper {
 
     List<customer> getAllCustomer();
+    Integer updateCustomer(customer customer);
+    Integer deleteCustomer(Long id);
+    Integer insertCustomer(customer customer);
+    List<customer> searchCustomer(String searchParam);
+    List<customer> selectCustomerById(Long id);
 }

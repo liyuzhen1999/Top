@@ -1,15 +1,30 @@
-package com.ruoyi.ruoyitopcrm.domain;
+package com.ruoyi.ruoyitopcrm.tool;
 
-public class customer {
+import com.ruoyi.ruoyitopcrm.domain.customer;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+public class customerTool {
+    @NotNull(message = "主键不能为空")
     private long id;//主键
+    @NotBlank(message = "顾客名称不能为空")
     private String customer_name;//顾客名称
+    @NotBlank(message = "顾客手机号不能为空")
     private String customer_phone;//顾客手机号
+    @NotBlank(message = "邮箱不能为空")
     private String customer_email;//邮箱
+    @NotBlank(message = "顾客地址不能为空")
     private String customer_address;//顾客地址
+    @NotBlank(message = "顾客传真不能为空")
     private String customer_fax;//顾客传真
+    @NotBlank(message = "顾客代表人不能为空")
     private String customer_representor;//顾客代表人
+    @NotBlank(message = "代表人职务不能为空")
     private String customer_post;//代表人职务
+    @NotNull(message = "联系人序号不能为空")
     private long contact_id;//联系人序号
+    @NotBlank(message = "联系人姓名不能为空")
     private String contact_name;//联系人姓名
 
     public long getId() {
@@ -92,4 +107,16 @@ public class customer {
         this.contact_name = contact_name;
     }
 
+    public customer coverTo(){
+        customer customer=new customer();
+        customer.setCustomer_name(this.customer_name);
+        customer.setCustomer_fax(this.customer_fax);
+        customer.setCustomer_phone(this.customer_phone);
+        customer.setCustomer_address(this.customer_address);
+        customer.setCustomer_post(this.customer_post);
+        customer.setContact_id(this.contact_id);
+        customer.setContact_name(this.contact_name);
+        customer.setCustomer_email(this.customer_email);
+        return customer;
+    }
 }

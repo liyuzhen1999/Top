@@ -17,4 +17,19 @@ public class customerService {
         List<customer> allCustomer = customerMapper.getAllCustomer();
         return allCustomer;
     }
+    public Integer updateCustomer(customer customer){
+        return this.customerMapper.updateCustomer(customer);
+    }
+    public Integer deleteCustomer(Long id){
+        return this.customerMapper.deleteCustomer(id);
+    }
+    public Integer insertCutomer(customer customer){
+        return this.customerMapper.insertCustomer(customer);
+    }
+    public List<customer> searchCustomer(String searchParam){
+        return this.customerMapper.searchCustomer(searchParam);
+    }
+    public List<customer> selectCustomerById(Long id){
+        return this.customerMapper.selectCustomerById(id);
+    }
 }
