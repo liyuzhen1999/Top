@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.top.topcrm.mapper.customerTocontactResultMapper">
+    <resultMap id="customerTocontactResultMapper" type="com.top.topcrm.domain.customerToContact">
+        <result column="customer_id" property="contact_id"/>
+        <result column="contact_id" property="contact_id"/>
+        <result column="customer_name" property="customer_name"/>
+        <result column="contact_name" property="contact_name"/>
+        <result column="address" property="address"/>
+        <result column="phone" property="phone"/>
+        <result column="isLeft" property="isLeft"/>
+    </resultMap>
+    <select id="searchView" resultType="com.top.topcrm.domain.customerToContact" >
+        select customerId,contactId,contactPhone,contactIsLeft,contactAddress,contactName,customer_name from view where contact_id=contactId
+    </select>
+</mapper>

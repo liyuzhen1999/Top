@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-    <groupId>com.ruoyi</groupId>
-    <artifactId>ruoyi</artifactId>
+    <groupId>com.top</groupId>
+    <artifactId>top</artifactId>
     <version>3.8.2</version>
 
     
     <properties>
-        <ruoyi.version>3.8.2</ruoyi.version>
+        <top.version>3.8.2</top.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -161,43 +161,30 @@
                 <version>${kaptcha.version}</version>
             </dependency>
 
-            <!-- 定时任务-->
-            <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-quartz</artifactId>
-                <version>${ruoyi.version}</version>
-            </dependency>
-
-            <!-- 代码生成-->
-            <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-generator</artifactId>
-                <version>${ruoyi.version}</version>
-            </dependency>
 
             <!-- 核心模块-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-framework</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>com.top</groupId>
+                <artifactId>top-framework</artifactId>
+                <version>${top.version}</version>
             </dependency>
 
             <!-- 系统模块-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-system</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>com.top</groupId>
+                <artifactId>top-system</artifactId>
+                <version>${top.version}</version>
             </dependency>
 
             <!-- 通用工具-->
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-common</artifactId>
-                <version>${ruoyi.version}</version>
+                <groupId>com.top</groupId>
+                <artifactId>top-common</artifactId>
+                <version>${top.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-topcrm</artifactId>
+                <groupId>com.top</groupId>
+                <artifactId>top-topcrm</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
 
@@ -205,13 +192,11 @@
     </dependencyManagement>
 
     <modules>
-        <module>ruoyi-admin</module>
-        <module>ruoyi-framework</module>
-        <module>ruoyi-system</module>
-        <module>ruoyi-quartz</module>
-        <module>ruoyi-generator</module>
-        <module>ruoyi-common</module>
-        <module>ruoyi-topcrm</module>
+        <module>top-admin</module>
+        <module>top-framework</module>
+        <module>top-system</module>
+        <module>top-common</module>
+        <module>top-topcrm</module>
     </modules>
     <packaging>pom</packaging>
 

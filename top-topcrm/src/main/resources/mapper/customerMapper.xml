@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.top.topcrm.mapper.customerMapper">
+    <resultMap id="CustomerResultMap" type="com.top.topcrm.domain.customer">
+        <id column="id" property="id"/>
+        <result column="customer_name" property="customer_name"/>
+        <result column="customer_phone" property="customer_phone"/>
+        <result column="customer_email" property="customer_email"/>
+        <result column="customer_address" property="customer_address"/>
+        <result column="customer_fax" property="customer_fax"/>
+        <result column="customer_representor" property="customer_representor"/>
+        <result column="customer_post" property="customer_post"/>
+        <result column="contact_id" property="contact_id"/>
+        <result column="contact_name" property="contact_name"/>
+        <result column="creater" property="creater"/>
+        <result column="create_time" property="create_time" jdbcType="DATE"/>
+        <result column="updater" property="updater"/>
+        <result column="update_time" property="update_time" jdbcType="DATE"/>
+    </resultMap>
+    <select id="getAllCustomer" resultMap="CustomerResultMap" >
+        select * from customer
+    </select>
+    <update id="updateCustomer" parameterType="com.top.topcrm.domain.customer">
+        update customer
+        <set>
+            <if test="customer_name!=null and customer_name!=''">customer_name=#{customer_name},</if>
+            <if test="customer_phone!=null and customer_phone!=''">customer_phone=#{customer_phone},</if>
+            <if test="customer_email!=null and customer_email!=''">customer_email=#{customer_email},</if>
+            <if test="customer_address!=null and customer_address!=''">customer_address=#{customer_address},</if>
+            <if test="customer_fax!=null and customer_fax!=''">customer_fax=#{customer_fax},</if>
+            <if test="customer_representor!=null and customer_representor!=''">customer_representor=#{customer_representor},</if>
+            <if test="customer_post!=null and customer_post!=''">customer_post=#{customer_post},</if>
+            <if test="contact_id!=null and contact_id!=''">contact_id=#{contact_id},</if>
+            <if test="contact_name!=null and contact_name!=''">contact_name=#{contact_name},</if>
+            <if test="updater!=null and updater!=''">updater=#{updater},</if>
+            <if test="update_time!=null">update_time=#{update_time},</if>
+        </set>
+            WHERE id=#{id}
+    </update>
+    <delete id="deleteCustomer" parameterType="Long">
+        delete from customer where id=#{id}
+    </delete>
+    <insert id="insertCustomer" parameterType="com.top.topcrm.domain.customer">
+        insert into customer(
+                             <trim suffixOverrides=",">
+                                 <if test="customer_name!=null and customer_name!=''">customer_name,</if>
+                                 <if test="customer_phone!=null and customer_phone!=''">customer_phone,</if>
+                                 <if test="customer_email!=null and customer_email!=''">customer_email,</if>
+                                 <if test="customer_address!=null and customer_address!=''">customer_address,</if>
+                                 <if test="customer_fax!=null and customer_fax!=''">customer_fax,</if>
+                                 <if test="customer_representor!=null and customer_representor!=''">customer_representor,</if>
+                                 <if test="customer_post!=null and customer_post!=''">customer_post,</if>
+                                 <if test="contact_id!=null and contact_id!=''">contact_id,</if>
+                                 <if test="contact_name!=null and contact_name!=''">contact_name,</if>
+                                <if test="creater!=null and creater!=''">creater,</if>
+                                <if test="create_time!=null">create_time,</if>
+                                <if test="updater!=null and updater!=''">updater,</if>
+                                <if test="update_time!=null ">update_time,</if>
+                             </trim>
+        ) VALUES (
+                  <trim suffixOverrides=",">
+                      <if test="customer_name!=null and customer_name!=''">#{customer_name},</if>
+                      <if test="customer_phone!=null and customer_phone!=''">#{customer_phone},</if>
+                      <if test="customer_email!=null and customer_email!=''">#{customer_email},</if>
+                      <if test="customer_address!=null and customer_address!=''">#{customer_address},</if>
+                      <if test="customer_fax!=null and customer_fax!=''">#{customer_fax},</if>
+                      <if test="customer_representor!=null and customer_representor!=''">#{customer_representor},</if>
+                      <if test="customer_post!=null and customer_post!=''">#{customer_post},</if>
+                      <if test="contact_id!=null and contact_id!=''">#{contact_id},</if>
+                      <if test="contact_name!=null and contact_name!=''">#{contact_name},</if>
+                      <if test="creater!=null and creater!=''">#{creater},</if>
+                      <if test="create_time!=null">#{create_time},</if>
+                      <if test="updater!=null and updater!=''">#{updater},</if>
+                      <if test="update_time!=null">#{update_time},</if>
+                  </trim>
+        )
+    </insert>
+    <select id="searchCustomer" resultType="com.top.topcrm.domain.customer">
+        select * from customer where 1=1
+        <if test="searchParam !=null and searchParam !=''">
+            AND   customer_name LIKE CONCAT('%',#{searchParam},'%')
+                                  or customer_phone LIKE CONCAT('%',#{searchParam},'%')
+                                  or customer_email  LIKE CONCAT('%',#{searchParam},'%')
+                                  or customer_address  LIKE CONCAT('%',#{searchParam},'%')
+                                  or customer_fax  LIKE CONCAT('%',#{searchParam},'%')
+                                  or customer_representor  LIKE CONCAT('%',#{searchParam},'%')
+                                  or customer_post  LIKE CONCAT('%',#{searchParam},'%')
+                                  or contact_id  LIKE CONCAT('%',#{searchParam},'%')
+                                  or contact_name  LIKE CONCAT('%',#{searchParam},'%')
+                                  or creater LIKE CONCAT('%',#{searchParam},'%')
+                                  or create_time LIKE CONCAT('%',#{searchParam},'%')
+                                  or updater LIKE CONCAT('%',#{searchParam},'%')
+                                  or update_time LIKE CONCAT('%',#{searchParam},'%')
+        </if>
+    </select>
+    <select id="selectCustomerById" resultMap="CustomerResultMap">
+        select * from customer
+        <where>
+            <if test="id!=null and id!=''">
+                id=#{id}
+            </if>
+        </where>
+    </select>
+</mapper>
